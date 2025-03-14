@@ -4,7 +4,7 @@ import s from "./Loader.module.css";
 const Loader = () => {
   return (
     <div className={s.Loader}>
-      <GridLoader color="#3f51b5" />
+      <GridLoader color="#044e07" />
     </div>
   );
 };

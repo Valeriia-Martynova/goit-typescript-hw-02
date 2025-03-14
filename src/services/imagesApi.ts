@@ -6,7 +6,7 @@ const BASE_URL = "https://api.unsplash.com";
 
 export const fetchImages = async (
   query: string,
-  page = 0,
+  page = 1,
   perPage = 12
 ): Promise<ImagesResponse> => {
   const response = await axios.get<ImagesResponse>(

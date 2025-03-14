@@ -29,10 +29,10 @@ const App: React.FC = () => {
       try {
         const data = await fetchImages(query, page);
         setImages((prev) =>
-          page === 0 ? data.images : [...prev, ...data.images]
+          page === 1 ? data.results : [...prev, ...data.results]
         );
-        setTotalPages(data.totalPages);
-        if (data.images.length === 0) {
+        setTotalPages(data.total_pages);
+        if (data.results.length === 0) {
           toast.error("No images found. Try a different query.");
           setError(true);
         }
@@ -46,6 +46,11 @@ const App: React.FC = () => {
     fetchData();
   }, [query, page]);
   const handleSearch = (newQuery: string) => {
+    if (!newQuery.trim()) {
+      toast.error("Please enter a search query.");
+      return;
+    }
+
     setQuery(newQuery);
     setPage(1);
     setImages([]);

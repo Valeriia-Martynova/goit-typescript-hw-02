@@ -5,6 +5,6 @@ export interface Image {
 }
 
 export interface ImagesResponse {
-  images: Image[];
-  totalPages: number;
+  results: Image[];
+  total_pages: number;
 }
